@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <script src="https://kit.fontawesome.com/8cd7772a80.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css">
+  
+  <title>Frontend Mentor | Article preview component</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    *{
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+    @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@500;700&display=swap');
+    body{
+      min-height: 100vh;
+      font-family: 'Manrope', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      color: hsl(214, 17%, 51%);
+      background-color: hsl(210, 46%, 95%);
+    }
+    main{
+      width: 63%;
+      display: flex;
+      justify-content: center;
+      border-radius: 15px;
+      overflow: hidden;
+    }
+
+    .img{
+      width: 40%;
+    }
+    .img img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+ 
+    h1,h2{
+      color: hsl(217, 19%, 35%);
+    }
+    .mainInfo{
+      width: 60%;
+    }
+    button{
+      border: 0 none;
+      background-color: hsl(210, 46%, 95%);
+      cursor: pointer;
+    }
+    .share b{
+      letter-spacing: 4px;
+    }
+ 
+    .share{
+      position: absolute;
+      right: 15%;
+      top: 49%;
+      border-radius: 10px;
+      background-color: hsl(217, 19%, 35%);
+      box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+      display: none;
+    }
+    .share>*{
+      cursor: pointer;
+    }
+    .bg-grey{
+      background-color:  hsl(217, 19%, 35%);
+    }
+    @media(max-width:1000px){
+      main{
+        width: 75%;
+      }
+      .share{
+      right: 8%;
+      top: 50%;
+      
+    }
+    }
+    @media(max-width: 500px){
+      main{
+        width: 80%;
+        flex-direction: column;
+        align-items: center;
+      }
+      .img, .mainInfo{
+        width: 100%;
+        position: relative;
+      }
+      .share{
+      display: flex;
+      justify-content: start;
+      font-size: 1.4rem;
+      align-items: center;
+      width: 100%;
+      right: 0;
+      top: 72%;
+      bottom: 0;
+      z-index: 1;
+      display: none;
+    }
+  
+    button{
+      z-index: 2;
+    }
+    .bg-grey{
+      background-color:  hsl(210, 46%, 95%);
+    }
+    }
+    .active{
+      display: block;
+    }
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+</head>
+<body>
+  <main class="mb-4 bg-white">
+    <div class="img">
+      <img src="./images/drawers.jpg" alt="" class="img-fluid">
+    </div>
+  <div class="mainInfo p-4 p-lg-5">
+    <h1 class="mb-3 h4">
+      Shift the overall look and feel by adding these wonderful 
+      touches to furniture in your home</h1>
+  
+    <p class="mb-3">Ever been in a room and felt like something was missing? Perhaps 
+      it felt slightly bare and uninviting. I’ve got some simple tips 
+      to help you make any room feel complete.</p>
+      
+    <div class="profile-container d-flex justify-content-between align-items-center">
+      <div class="profile d-flex">
+        <div class="rounded-pill overflow-hidden me-2" style="width: 50px;height:50px">
+          <img src="./images/avatar-michelle.jpg" alt="" class="img-fluid">
+        </div>
+        <div>
+          <h2 class="h6">Michelle Appleton</h2>
+         <p class="m-0">28 Jun 2020</p>
+        </div>
+      </div>
+    
+      <button class="rounded-pill" style="width:35px; height:35px"> <i class="fa-solid fa-share"></i></button>
+      <div class="share p-2 px-3">
+        <b class="px-2">SHARE</b>
+        <i class="fa-brands fa-facebook pe-2 text-white"></i>
+        <i class="fa-brands fa-twitter pe-2 text-white"></i>
+        <i class="fa-brands fa-pinterest pe-2 text-white"></i>
+      </div>
+  
+    </div>
+    </div>
+  </main>
+  
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="https://www.frontendmentor.io/profile/thidarnyien">Thidar Nyein</a>.
+  </div>
+  <script>
+    let shareBtn= document.querySelector("button");
+    let shareTag = document.querySelector(".share");
+
+    shareBtn.addEventListener("click", ()=>{
+      shareBtn.classList.toggle("bg-grey");
+      shareTag.classList.toggle("active");
+    })
+
+  </script>
+</body>
+</html>
